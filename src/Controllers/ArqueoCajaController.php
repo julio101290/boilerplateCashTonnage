@@ -1,20 +1,22 @@
 <?php
 
-namespace julio101290\boilerplatesells\Controllers;
+namespace julio101290\boilerplatecashtonnage\Controllers;
 
 use App\Controllers\BaseController;
-use \App\Models\{
+use julio101290\boilerplatelog\Models\{
     ArqueoCajaModel
 };
-use App\Models\LogModel;
+
+use julio101290\boilerplatelog\Models\LogModel;
 use CodeIgniter\API\ResponseTrait;
-use App\Models\EmpresasModel;
+use julio101290\boilerplatecompanies\Models\EmpresasModel;
 use App\Models\UserModel;
-use App\Models\BranchofficesModel;
-use App\Models\SellsModel;
-use App\Models\VehiculosModel;
-use App\Models\ChoferesModel;
-use App\Models\CustumersModel;
+use julio101290\boilerplatebranchoffice\Models\BranchofficesModel;
+use julio101290\boilerplatesells\Models\SellsModel;
+use julio101290\boilerplatevehicles\Models\VehiculosModel;
+use julio101290\boilerplatedrivers\Models\ChoferesModel;
+use julio101290\boilerplatecustumers\Models\CustumersModel;
+
 
 class ArqueoCajaController extends BaseController {
 

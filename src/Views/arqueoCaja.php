@@ -7,7 +7,7 @@
 <!-- Section content -->
 <?= $this->section('content') ?>
 
-<?= $this->include('modulesArqueoCaja/modalCaptureArqueoCaja') ?>
+<?= $this->include('julio101290\boilerplatecashtonnage\Views\modulesArqueoCaja/modalCaptureArqueoCaja') ?>
 
 <!-- SELECT2 EXAMPLE -->
 <div class="card card-default">
