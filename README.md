@@ -1,7 +1,7 @@
-[![Latest Stable Version](https://poser.okvpn.org/julio101290/boilerplatequotes/v/stable)](https://packagist.org/packages/julio101290/boilerplatequotes) [![Total Downloads](https://poser.okvpn.org/julio101290/boilerplatequotes/downloads)](https://packagist.org/packages/julio101290/boilerplatequotes) [![Latest Unstable Version](https://poser.okvpn.org/julio101290/boilerplatequotes/v/unstable)](https://packagist.org/packages/julio101290/boilerplatequotes) [![License](https://poser.okvpn.org/julio101290/boilerplatequotes/license)](https://packagist.org/packages/julio101290/boilerplatequotes)
+[![Latest Stable Version](https://poser.okvpn.org/julio101290/boilerplatecashtonnage/v/stable)](https://packagist.org/packages/julio101290/boilerplatecashtonnage) [![Total Downloads](https://poser.okvpn.org/julio101290/boilerplatecashtonnage/downloads)](https://packagist.org/packages/julio101290/boilerplatecashtonnage) [![Latest Unstable Version](https://poser.okvpn.org/julio101290/boilerplatecashtonnage/v/unstable)](https://packagist.org/packages/julio101290/boilerplatecashtonnage) [![License](https://poser.okvpn.org/julio101290/boilerplatecashtonnage/license)](https://packagist.org/packages/julio101290/boilerplatecashtonnage)
 
-## CodeIgniter 4 Boilerplate Quotes
-CodeIgniter4 Boilerplatequotes library to generate quotes with PDF print format to send to clients
+## CodeIgniter 4 Boilerplate Cash Tonnage
+CodeIgniter4 Boilerplate Cash Tonnage library to admin Sells and box Money
 
 
 ## Requirements
@@ -27,6 +27,8 @@ CodeIgniter4 Boilerplatequotes library to generate quotes with PDF print format 
 
 	composer require julio101290/boilerplatequotes
 
+ 	composer require julio101290/boilerplatecashtonnage
+	
 
 ### Run command for migration and seeder
 
@@ -39,17 +41,27 @@ CodeIgniter4 Boilerplatequotes library to generate quotes with PDF print format 
 	php spark boilerplatetypesmovement:installtypesmovement
 
 	php spark boilerplatequotes:installquotes
+
+ 	php spark boilerplatecashtonnage:installcashtonnage  
 	
 
 # Make the Menu, Example
 
-![image](https://github.com/user-attachments/assets/e4a13d86-c714-4237-b29e-adb5616b7283)
+![image](https://github.com/user-attachments/assets/360b9413-841e-48d6-aa6a-83c8ee6a234f)
+
 
 
 
 # Ready
 
-![image](https://github.com/user-attachments/assets/34038a0e-533b-466e-bd4d-21ee439dad05)
+![image](https://github.com/user-attachments/assets/992e23f4-ccbf-4d18-943a-07d38d0e1fc0)
+
+![image](https://github.com/user-attachments/assets/f009f8d3-a1d6-46ef-9a9a-d087209f8a02)
+
+![image](https://github.com/user-attachments/assets/3b78cb7a-061e-4127-b493-067d3f5fdc36)
+
+
+
 
 
 
