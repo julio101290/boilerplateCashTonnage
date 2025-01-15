@@ -3,7 +3,7 @@
 namespace julio101290\boilerplatecashtonnage\Controllers;
 
 use App\Controllers\BaseController;
-use julio101290\boilerplatelog\Models\{
+use julio101290\boilerplatecashtonnage\Models\{
     ArqueoCajaModel
 };
 
@@ -73,7 +73,7 @@ class ArqueoCajaController extends BaseController {
         }
         $titulos["title"] = lang('arqueoCaja.title');
         $titulos["subtitle"] = lang('arqueoCaja.subtitle');
-        return view('arqueoCaja', $titulos);
+        return view('julio101290\boilerplatecashtonnage\Views\arqueoCaja', $titulos);
     }
 
     /**
@@ -189,8 +189,10 @@ class ArqueoCajaController extends BaseController {
         $datosEmpresaObj = $this->empresa->select("*")->where("id", $arqueoCaja["idEmpresa"])->asObject()->first();
 
         $pdf->fechaHumanizada = fechaHumanizada(fechaActual());
+        
 
-        $pdf->nombreDocumento = "CONTROL DE REMISIONES BASCULA";
+        $pdf->nombreDocumento = lang('arqueoCajaReport.title');
+
         $pdf->direccion = $datosEmpresaObj->direccion;
 
         if ($datosEmpresaObj->logo == NULL || $datosEmpresaObj->logo == "") {
@@ -256,22 +258,35 @@ class ArqueoCajaController extends BaseController {
         // ---------------------------------------------------------
         $pdf->AddPage('L', 'Letter');
 
+        $folio = lang('arqueoCajaReport.folio');
+        $date = lang('arqueoCajaReport.date');
+        $plates = lang('arqueoCajaReport.plates');
+        $vehicle = lang('arqueoCajaReport.vehicle');
+        $driver = lang('arqueoCajaReport.driver');
+
+        $custumer = lang('arqueoCajaReport.custumer');
+        $scaleOperator = lang('arqueoCajaReport.scaleOperator');
+        $credit = lang('arqueoCajaReport.credit');
+        $counted = lang('arqueoCajaReport.counted');
+        
+
+
         $bloque3 = <<<EOF
 
         <table style="font-size:10px; padding:5px 10px;">
     
             <tr>
     
-            <td style="width: 70px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">FOLIO</td>
-            <td style="width: 180px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">FECHA</td>
-            <td style="width: 90px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">PLACAS</td>
+            <td style="width: 70px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$folio</td>
+            <td style="width: 180px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$date</td>
+            <td style="width: 90px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$plates</td>
     
-            <td style="width: 80px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">VEHICULO</td>
-            <td style="width: 100px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">CHOFER</td>
-            <td style="width: 150px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">CLIENTE</td>
-            <td style="width: 100px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">OPERADOR BASCULA</td>
-            <td style="width: 100px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">CREDITO</td>
-            <td style="width: 100px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">CONTADO</td>    
+            <td style="width: 80px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$vehicle</td>
+            <td style="width: 100px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$driver </td>
+            <td style="width: 150px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$custumer</td>
+            <td style="width: 100px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$scaleOperator</td>
+            <td style="width: 100px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$credit</td>
+            <td style="width: 100px; background-color:#2c3e50; padding: 4px 4px 4px; font-weight:bold;  color:white; text-align:center">$counted</td>    
             </tr>
     
         </table>
@@ -481,6 +496,7 @@ class ArqueoCajaController extends BaseController {
         $pdf->writeHTML($bloque3, false, false, false, false, '');
 
         if ($isMail == 0) {
+            ob_end_clean();
             $this->response->setHeader("Content-Type", "application/pdf");
             $pdf->Output('arquoCaja.pdf', 'I');
         } else {
